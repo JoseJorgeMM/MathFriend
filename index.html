@@ -24,7 +24,7 @@
 
 
         body {
-    font-family: 'EB Garamond', 'Garamond', serif;
+    font-family: 'EB Garamond',system-ui, -apple-system, sans-serif;
     background: linear-gradient(135deg, 
         #f8f9fa 0%,
         #e9ecef 25%,
@@ -40,18 +40,18 @@
 }
         .author-mark {
             position: fixed;
-            bottom: 2px;
+            bottom: 1px;
             left: 1px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.6rem;
             color: #8881e2;
-            padding: 8px 10px;
+            padding: 5px 10px;
             background: rgba(255, 255, 255, 0.9);
-            border-radius: 13px;
+            border-radius: 10px;
             box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: left;
-            gap: 4px;
+            gap: 1px;
             backdrop-filter: blur(5px);
             transition: all 0.9s ease;
             z-index: 1000;
@@ -96,7 +96,7 @@
         }
 
         .robot-emoji {
-            font-size: 3.5rem;
+            font-size: 4rem;
             animation: wave 2s infinite;
         }
 
@@ -153,10 +153,10 @@
 }
 
         .virtual-board:hover {
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 15px 30px rgba(0.5, 0.5, 0.5, 0.5);
         }
 
-        .messages { /* Historial de mensajes*/
+  *      .messages { /* Historial de mensajes*/
             flex-grow: 1;
             height: 150px;
             overflow-y: auto;
@@ -164,11 +164,11 @@
             border-radius: 15px;
             margin: 20px 0;
             padding: 70px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .message {
-            padding: 12px 15px;
+            padding: 10px 10px;
             border-radius: 12px;
             margin: 8px 0;
             max-width: 80%;
@@ -186,7 +186,7 @@
             background: #2ecc71;
             color: white;
             align-self: flex-start;
-        }
+        }                              
 
         .input-bar {
             display: flex;
@@ -199,51 +199,56 @@
             margin-right: 200px
         }
 
-        .input-bar textarea {  /* Cambiado de input a textarea */
-    flex-grow: 1;
-    padding: 12px 10px;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    min-width: 300px;  /* Establece un ancho mínimo */
-}
+        .input-bar textarea {  /* Box to user's type */
+            flex-grow: 1;
+            padding: 12px 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            min-width: 300px;  /* Establece un ancho mínimo */
+        }
 
         .input-bar input:focus {
             border-color: #3498db;
             box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
             outline: none;
         }
-
-        .input-bar button { /* Enviar y Grabar voz*/
-            padding: 12px 25px;
+        .input-bar button { /* Send and Record Buttons*/
+            width: 45px;
+            height: 45px;
+            padding: 10px;
             border: none;
-            border-radius: 10px;
+            border-radius: 50%;
             background-color: #3498db;
             color: white;
-            font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 5px;
-        }
+            justify-content: center;
+        }          
 
         .input-bar button:hover {
-            background-color: #2980b9;
             transform: translateY(-2px);
+            background-color: #2980b9;
+        }
+
+        .input-bar button svg {
+            width: 24px;
+            height: 24px;
         }
 
         .keyboard { /*Teclado desplegado*/
             display: none;
             position: fixed;
-            bottom: 60px; /* Cambiado de top: 50% a bottom: 100px */
+            bottom: 1px; /* Cambiado de top: 50% a bottom: 100px */
             right: 70px;      /* Cambiado de right: 30px a left: 50% */
             transform: translateY(-50%);  /* Cambiado de translateY(-50%) */
             width: 280px;
             grid-template-columns: repeat(5, 1fr);
             gap: 8px;
-            padding: 15px;
+            padding: 10px;
             background: rgba(255, 255, 255, 0.95);
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
@@ -344,10 +349,10 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes messageIn {
+       /* @keyframes messageIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
-        }
+        }*/
 
         @keyframes slideIn {
             from { opacity: 0; transform: translateX(50px); }
@@ -379,11 +384,11 @@
             background: #555;
         }
 
-        .reset-button {
+.reset-button {
             position: fixed;
-            bottom: 60px;
-            left: 90px;
-            padding: 12px 24px;
+            bottom: 40px;
+            left: 150px;
+            padding: 8px 18px;
             background-color: #2ecc71;
             color: white;
             border: none;
@@ -426,6 +431,25 @@
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
+
+/*Mensajes Emergentes del Virtual Board y Messages*/
+.tooltip {
+    position: absolute;
+    background-color: rgba(175, 175, 175, 0.9);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.tooltip.show {
+    opacity: 1;
+}
     </style>
 
 </head>
@@ -434,18 +458,19 @@
     <div class="container">
         <div class="header">
             <h1>
-                <span class="robot-emoji">🤖</span>
+                <span class="robot-emoji">🧬</span>
                 MathFriend: tu asistente virtual en Matemáticas, Ciencias y más.
             </h1>
         </div>
         <div class="virtual-board-container">
             <div class="virtual-board" id="virtualBoard"></div>
             <div class="board-navigation">
-                <button class="nav-button" id="prevPage" onclick="changePage(-1)">← Anterior</button>
+                <button class="nav-button" id="prevPage" onclick="changePage(-1)">←   Anterior</button>
                 <span class="page-indicator" id="pageIndicator">Página 1 de 1</span>
-                <button class="nav-button" id="nextPage" onclick="changePage(1)">Siguiente →</button>
+                <button class="nav-button" id="nextPage" onclick="changePage(1)">Siguiente   →</button>
             </div>
         </div>
+        
         <div class="messages" id="messages"></div>
         <div class="input-bar">
             <textarea 
@@ -454,8 +479,21 @@
                 rows="1"
                 style="resize: vertical; min-height: 10px;"
             ></textarea>
-            <button onclick="startVoiceInput()">🎤 Grabar Voz</button>
-            <button onclick="handleSendMessage()">📤 Enviar</button>
+            <button onclick="handleSendMessage()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 2L11 13"></path>
+                    <path d="M22 2L15 22L11 13L2 9L22 2z"></path>
+                </svg>
+            </button>
+            <button onclick="startVoiceInput()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                    <line x1="12" y1="19" x2="12" y2="23"></line>
+                    <line x1="8" y1="23" x2="16" y2="23"></line>
+                </svg>
+            </button>
+        </div>
         </div>
 
         <!-- El resto del código permanece igual -->
@@ -503,6 +541,8 @@
     </div>
 
     <script>
+
+        
         const virtualBoard = document.getElementById('virtualBoard');
         const messagesContainer = document.getElementById('messages');
         const inputField = document.getElementById('inputText');
@@ -719,6 +759,64 @@ const resetChat = () => {
     document.getElementById('resetButton').classList.remove('pulsing');
     document.getElementById('resetWarning').classList.remove('show');
 };
+
+/*Mensajes emergentes del Virtual Board y Messages*/
+// Variables para controlar si los tooltips ya se mostraron
+let virtualBoardTooltipShown = false;
+let messagesTooltipShown = false;
+
+// Función para crear y mostrar tooltip
+const showTooltip = (element, message, position) => {
+    if ((element.id === 'virtualBoard' && virtualBoardTooltipShown) || 
+        (element.id === 'messages' && messagesTooltipShown)) {
+        return;
+    }
+
+    const tooltip = document.createElement('div');
+    tooltip.className = 'tooltip';
+    tooltip.textContent = message;
+    document.body.appendChild(tooltip);
+
+    const rect = element.getBoundingClientRect();
+    
+    // Posicionar tooltip según el elemento
+    if (position === 'top') {
+        tooltip.style.top = `${rect.top - 40}px`;
+        tooltip.style.left = `${rect.left + (rect.width / 2) - (tooltip.offsetWidth / 2)}px`;
+    } else {
+        tooltip.style.top = `${rect.top + 200}px`;
+        tooltip.style.left = `${rect.left + (rect.width / 2) - (tooltip.offsetWidth / 2)}px`;
+    }
+
+    // Mostrar tooltip
+    setTimeout(() => tooltip.classList.add('show'), 10);
+
+    // Marcar como mostrado
+    if (element.id === 'virtualBoard') {
+        virtualBoardTooltipShown = true;
+    } else if (element.id === 'messages') {
+        messagesTooltipShown = true;
+    }
+
+    // Remover tooltip después de 3 segundos
+    setTimeout(() => {
+        tooltip.classList.remove('show');
+        setTimeout(() => tooltip.remove(), 600);
+    }, 3000);
+};
+
+// Agregar event listeners
+document.getElementById('virtualBoard').addEventListener('mouseenter', (e) => {
+    if (!virtualBoardTooltipShown) {
+        showTooltip(e.target, 'Aquí podrás ver todas las respuestas del asistente', 'bottom');
+    }
+});
+
+document.getElementById('messages').addEventListener('mouseenter', (e) => {
+    if (!messagesTooltipShown) {
+        showTooltip(e.target, 'Aquí podrás ver todo el historial de mensajes', 'bottom');
+    }
+});
     </script>
 </body>
 </html>
